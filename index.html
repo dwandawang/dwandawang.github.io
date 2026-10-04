@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wanda Wang</title>
+<meta name="description" content="Wanda Wang — Ph.D. Candidate in Finance, HKU Business School.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{
+  --bg:#FAF8F5;--text:#2A2520;--text2:#6B6158;--gold:#A68B5B;--border:#DDD7CE;
+  --nav-bg:rgba(250,248,245,.97);--sidebar-bg:rgba(250,248,245,.95);
+  --font-d:'Cormorant Garamond',Georgia,serif;--font-b:'Source Sans 3','Segoe UI',sans-serif;
+  --accent:#3D3328;--tag-wp-bg:#FAF8F5;--abs-bg:#F3F0EB;
+}
+[data-theme="dark"]{
+  --bg:#161310;--text:#E8E0D6;--text2:#A89C8E;--gold:#C4A97A;--border:#342E27;
+  --nav-bg:rgba(22,19,16,.97);--sidebar-bg:rgba(22,19,16,.95);
+  --accent:#C4A97A;--tag-wp-bg:#1C1915;--abs-bg:#1E1B17;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;height:100%}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;min-height:100%;transition:background .3s,color .3s}
+.navbar{position:sticky;top:0;z-index:100;background:var(--nav-bg);border-bottom:1px solid var(--border);backdrop-filter:blur(8px);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:52px;transition:background .3s}
+.nav-name{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--text);text-decoration:none}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.theme-btn:hover{border-color:var(--gold)}
+.page{display:flex;max-width:1100px;margin:0 auto;padding:0 24px}
+.sidebar{width:250px;flex-shrink:0;padding:36px 24px 40px 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
+.sidebar-photo{width:180px;height:225px;object-fit:cover;border-radius:4px;margin-bottom:18px;display:block;border:1px solid var(--border)}
+.sidebar-name{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--text);margin-bottom:3px}
+.sidebar-title{font-size:13.5px;color:var(--text2);margin-bottom:16px;line-height:1.5}
+.sidebar-info{font-size:13px;color:var(--text2);line-height:1.8}
+.sidebar-info a{color:var(--gold);text-decoration:none}
+.sidebar-info a:hover{text-decoration:underline}
+.content{flex:1;min-width:0;border-left:1px solid var(--border);padding:0 0 60px 40px}
+.banner{width:100%;height:260px;background-image:url('images/background.png');background-size:cover;background-position:center 35%;position:relative}
+.banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,var(--bg))}
+.main{padding:24px 0 0}
+section{margin-bottom:36px}
+.section-title{font-family:var(--font-d);font-size:23px;font-weight:600;color:var(--text);margin-bottom:16px;padding-bottom:5px;border-bottom:1.5px solid var(--gold);display:inline-block}
+.bio{font-size:15.5px;color:var(--text2);line-height:1.8;max-width:620px}
+.bio strong{color:var(--text)}
+.paper{margin-bottom:18px;padding-left:13px;border-left:2px solid var(--border);transition:border-color .2s}
+.paper:hover{border-left-color:var(--gold)}
+.paper-title{font-family:var(--font-d);font-size:17px;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:2px}
+.paper-meta{font-size:13.5px;color:var(--text2);font-style:italic;margin-bottom:3px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:3px;letter-spacing:.02em}
+.tag-jmp{background:var(--accent);color:#F5F0E8}
+.tag-rr{background:var(--gold);color:#fff}
+.tag-pub{background:#4A7A5C;color:#fff}
+.tag-wp{background:var(--tag-wp-bg);color:var(--text2);border:1px solid var(--border)}
+.subsection{font-family:var(--font-d);font-size:17px;font-weight:500;color:var(--gold);margin:24px 0 12px;font-style:italic}
+
+/* ABSTRACT TOGGLE */
+.abs-toggle{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--gold);cursor:pointer;margin-top:4px;user-select:none;border:none;background:none;font-family:var(--font-b);transition:color .2s}
+.abs-toggle:hover{color:var(--text)}
+.abs-toggle .arrow{display:inline-block;transition:transform .2s;font-size:10px}
+.abs-toggle.open .arrow{transform:rotate(90deg)}
+.abs-content{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;padding:0 12px}
+.abs-content.open{max-height:600px;padding:10px 12px}
+.abs-text{font-size:13.5px;color:var(--text2);line-height:1.7;background:var(--abs-bg);border-radius:4px;padding:12px 14px;border-left:2px solid var(--gold)}
+
+.teach-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid var(--border);gap:12px;font-size:14.5px}
+.teach-row:last-child{border-bottom:none}
+.teach-course{color:var(--text);flex:1}
+.teach-year{color:var(--text2);white-space:nowrap;font-size:13.5px}
+.pres-year{font-family:var(--font-d);font-size:16px;font-weight:600;color:var(--gold);margin-top:12px;margin-bottom:3px}
+.pres-list{font-size:14.5px;color:var(--text2);line-height:1.8}
+.edu-item{margin-bottom:12px}
+.edu-degree{font-size:15px;font-weight:600;color:var(--text)}
+.edu-school{font-size:14px;color:var(--text2)}
+.edu-year{font-size:13px;color:var(--gold)}
+footer{padding:24px 0;border-top:1px solid var(--border);font-size:12.5px;color:var(--text2)}
+@media(max-width:768px){
+.navbar{padding:0 16px}
+.nav-links{gap:14px}
+.nav-links a{font-size:13px}
+.page{flex-direction:column;padding:0 16px}
+.sidebar{width:100%;height:auto;position:static;padding:24px 0;display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px}
+.sidebar-photo{width:100px;height:125px;margin-bottom:0}
+.content{border-left:none;padding:0 0 40px}
+.banner{height:160px}
+.teach-row{flex-direction:column;gap:1px}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-name" href="#">Wanda Wang</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#presentations">Presentations</a>
+    <a href="#education">Education</a>
+    <a href="files/CV_Wanda_Wang.pdf">CV</a>
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle light/dark mode">&#9790;</button>
+  </div>
+</nav>
+
+<div class="page">
+<aside class="sidebar">
+  <img class="sidebar-photo" src="images/Wanda Wang photo.jpg" alt="Wanda Wang">
+  <div>
+    <div class="sidebar-name">Wanda Wang</div>
+    <div class="sidebar-title">Ph.D. Candidate in Finance<br>HKU Business School</div>
+    <div class="sidebar-info">
+      K. K. Leung Building<br>
+      Pokfulam Road, Hong Kong<br><br>
+      <a href="mailto:wang422@connect.hku.hk">wang422@connect.hku.hk</a><br>
+      <a href="files/CV_Wanda_Wang.pdf">Download CV</a>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+<div class="banner"></div>
+<div class="main">
+
+<section id="about">
+  <h2 class="section-title">About</h2>
+  <p class="bio">I am a Ph.D. candidate in Finance at HKU Business School, The University of Hong Kong. I study the historical origins of financial development, political economy, and long-run economic change, with a focus on modern China. My research combines newly digitized archival data with econometric methods to understand how institutions, trade, and politics have shaped financial systems over time.</p>
+  <p class="bio" style="margin-top:12px"><strong>I will be on the 2026–2027 academic job market.</strong></p>
+</section>
+
+<section id="research">
+  <h2 class="section-title">Research</h2>
+
+  <div class="subsection">Job Market Paper</div>
+  <div class="paper">
+    <div class="paper-title">Removing Internal Trade Barriers and Financial Development: Evidence from China in the 1930s</div>
+    <div><span class="tag tag-jmp">Job Market Paper</span> <span class="tag tag-wp">Sole-authored</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">Can removing internal trade barriers expand finance? The answer is not obvious: barrier removal may enlarge the commercial base on which bank offices depend, or reduce demand for working capital. I study China's 1931 abolition of likin, a system of internal checkpoint taxes, exploiting variation in prereform station exposure across 272 prefectures. Chinese bank offices and industrial entrants grew most where both local relief and external market-access gains were high, a pattern confirmed by an instrument based on distance to a minimum spanning tree of mid-nineteenth-century military suppression nodes. Expansion concentrated in branches of existing banks and transport-intensive sectors. Foreign banks showed no response. The reform gradient accounts for roughly 29 percent of the net increase in bank offices by 1936, and borrowing-rate gaps narrowed along intensively taxed corridors. Removing internal trade barriers can deepen finance by enlarging the economic base that intermediation serves.</div></div>
+  </div>
+
+  <div class="subsection">Published &amp; Under Revision</div>
+
+  <div class="paper">
+    <div class="paper-title">Reversal of Neolithic Fortunes: Trade Opening and the Durable Reordering of China's Economic Geography</div>
+    <div class="paper-meta">with Zhiwu Chen</div>
+    <div><span class="tag tag-rr">Revise &amp; Resubmit, The Journal of Economic History</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">Combining over 90,000 geocoded archaeological sites with population benchmarks, we trace China's economic geography across seven millennia since the Neolithic Revolution. A north- and inland-centered Neolithic pattern continued to predict later population, weakening under maritime expansion and warfare yet repeatedly recovering before 1840. This resilience reflected agricultural advantages and accumulated old-core assets, including administrative capacity, hydraulic investment, and transport infrastructure. After 1840, treaty-port regions accumulated a reinforcing bundle of trade, industry, finance, transport, and human capital, and the Neolithic pattern no longer recovered. Durable reordering emerged when coastal advantages became broader and more complementary than in earlier episodes.</div></div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Steam Beyond the Gateways: Steamship Connectivity and Industrial Entry in China</div>
+    <div><span class="tag tag-rr">Revise &amp; Resubmit, European Review of Economic History</span> <span class="tag tag-wp">Sole-authored</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">Steamships were the first Western transport technology to diffuse widely in China, entering through treaty ports but later spreading beyond them. Using a prefecture-decade panel of 284 prefectures from 1840 to 1927, I find that prefectures gaining steamship connections saw substantially more modern industrial entry, concentrated in trade-intensive sectors. The results are robust to pre-steamship economic fundamentals and competing technologies, and are supported by a shift-share instrument based on hypothetical steamship-navigable access to early treaty ports. Foreign trade responded almost immediately, while native banking and industrial entry expanded gradually over subsequent decades, consistent with commercial deepening accompanying industrial entry.</div></div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Stature Reveals Changing Patterns of the Biological Standard of Living in Europe and Asia over the Past 7,000 Years</div>
+    <div class="paper-meta">with Joerg Baten et al.</div>
+    <div><span class="tag tag-pub">Forthcoming, Proceedings of the National Academy of Sciences</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">Bioarchaeological analysis of human remains provides evidence on health and nutrition that is rarely available from written records alone. This study assembles the largest Eurasian stature dataset to date, covering 18,457 observations over roughly 7,000 years, and links it to long-run demographic and historical indicators. We show that stature varied substantially across regions and over time. Historical indicators of technology are clearly associated with higher population density, but not with lasting gains in stature before the modern era. The results offer a more thorough understanding of health, technology and population relationships across pre-modern Eurasia.</div></div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Different Institutions, Different Finance: Evidence from Early Twentieth-Century China</div>
+    <div><span class="tag tag-pub">Economics Letters 268 (2026): 113216</span> <span class="tag tag-wp">Sole-authored</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">Institutional legacies are associated not only with the scale of finance but also with the organizational forms that emerge. Using prefecture-level data from early twentieth-century China, where indigenous money houses based on relational contracting coexisted with modern banks operating under codified law, we document that prefectures more deeply embedded in the imperial administrative system had more money houses and lower private borrowing costs, consistent with lower information and enforcement costs in relational finance. Treaty-port prefectures instead had more modern banks, with this concentration widening from 1910 to 1935. The analysis is descriptive and does not establish causality.</div></div>
+  </div>
+
+  <div class="subsection">Working Papers</div>
+
+  <div class="paper">
+    <div class="paper-title">Financial Crisis and Political Change: China in 1910</div>
+    <div class="paper-meta">with Chen Lin and Chicheng Ma</div>
+    <div><span class="tag tag-wp">Working Paper</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">We investigate how a financial crisis can escalate from financial panic to political grievance, ultimately catalyzing regime change. Our setting is the 1910 Financial Crisis in China, triggered by the collapse of rubber stock prices and the subsequent failure of native banking institutions nationwide. Using over 60,000 newspaper articles across 287 prefectures from 1908 to 1911, we construct high-frequency measures of financial panic, government-directed grievance, and anti-government contention. Prefectures more severely affected by the Crisis experienced more intense panic, sharper and more persistent grievances toward the Qing government, and higher anti-government incident rates, following a sequential pattern from merchant and elite mobilization to revolutionary activity culminating in the Republican Revolution of 1911. These findings suggest that financial crises can destabilize autocratic regimes by generating the micro-foundations for revolutionary mobilization.</div></div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-title">Bonds of Love: Patriotism and the Rise of Modern Banks</div>
+    <div class="paper-meta">with Yuchen Sun and Yuchen Xu</div>
+    <div><span class="tag tag-wp">Working Paper</span></div>
+    <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
+    <div class="abs-content"><div class="abs-text">This study examines the role of patriotism in the rise of modern banks when they emerged as a new form of financial institution. In China, the loss of Western financial support during WWI (1914) prompted the Republican government to issue patriotic domestic bonds to address fiscal shortfalls. Modern banks underwrote these bonds and expanded into regions with stronger patriotic sentiment to attract subscriptions. These banks thus established themselves by achieving strong profitability and gaining long-term public familiarity and trust. Historical evidence suggests that patriotism similarly fueled early banking development in other countries.</div></div>
+  </div>
+
+  <div class="subsection">Work in Progress</div>
+  <div class="paper">
+    <div class="paper-title">Banking Landscape in Hong Kong since the 1950s</div>
+    <div><span class="tag tag-wp">In Progress</span> <span class="tag tag-wp">Sole-authored</span></div>
+  </div>
+  <div class="paper">
+    <div class="paper-title">Finance and Innovation in the Long Run</div>
+    <div class="paper-meta">with Chen Lin and Chicheng Ma</div>
+    <div><span class="tag tag-wp">In Progress</span></div>
+  </div>
+</section>
+
+<section id="teaching">
+  <h2 class="section-title">Teaching</h2>
+  <div class="subsection">Guest Lecturer</div>
+  <div class="teach-row"><span class="teach-course">ECON6060 Development Economics (MSc)</span><span class="teach-year">2024</span></div>
+  <div class="teach-row"><span class="teach-course">ECON2273 Economic History of China (Undergraduate)</span><span class="teach-year">2023</span></div>
+  <div class="subsection">Teaching Assistant</div>
+  <div class="teach-row"><span class="teach-course">DBAP7048 Research Methods in Finance, Economics, and Accounting (DBA)</span><span class="teach-year">2026</span></div>
+  <div class="teach-row"><span class="teach-course">DBAP7015 Global Financial Innovation (DBA)</span><span class="teach-year">2026</span></div>
+  <div class="teach-row"><span class="teach-course">DBAP7017 Frontiers in Economics and Accounting Research (DBA)</span><span class="teach-year">2021</span></div>
+  <div class="teach-row"><span class="teach-course">EMBA6608 Financial Innovation and Credit Market (EMBA)</span><span class="teach-year">2026</span></div>
+  <div class="teach-row"><span class="teach-course">EMBA7613 Current Topics in Economic Development (EMBA)</span><span class="teach-year">2021</span></div>
+  <div class="teach-row"><span class="teach-course">ECON6069 Advanced Topics in Economic Policy (MSc)</span><span class="teach-year">2023–2024</span></div>
+  <div class="teach-row"><span class="teach-course">ECON6068 Advanced Topics in Applied Econometrics (MSc)</span><span class="teach-year">2024</span></div>
+  <div class="teach-row"><span class="teach-course">ECON6060 Development Economics (MSc)</span><span class="teach-year">2023</span></div>
+  <div class="teach-row"><span class="teach-course">CCHU9069 Economic Logic of Civilizations (Undergraduate)</span><span class="teach-year">2025</span></div>
+</section>
+
+<section id="presentations">
+  <h2 class="section-title">Presentations</h2>
+  <div class="pres-year">2027</div>
+  <div class="pres-list">Cliometric Society Session, Allied Social Science Associations Annual Meeting (Washington, D.C., scheduled)</div>
+  <div class="pres-year">2026</div>
+  <div class="pres-list">Economic History Society Annual Meeting (London) · AsianFA Annual Conference (Seoul) · China International Conference in Economics (Beijing) · Symposium on Quantitative History (Wuhan) · Quantitative History Webinar · Workshop on Early China Development and Its Long-term Impact (HKU)</div>
+  <div class="pres-year">2025</div>
+  <div class="pres-list">American Economic Association Annual Meeting (San Francisco) · Economic History Association Annual Meeting (Philadelphia) · World Economic History Congress (Lund) · Workshop on Chinese and Comparative Economic History (Oxford) · CAGE-AMES Workshop (Warwick) · Financial History Workshop (HKU) · Economic History Workshop (PKU-THU joint)</div>
+  <div class="pres-year">2024</div>
+  <div class="pres-list">Economic History Association Annual Meeting (Sacramento) · Asian Historical Economics Conference (Hong Kong) · Symposium on Quantitative History (SJU) · China Economic Society Annual Conference (ZJU) · AsianFA Annual Conference (Macau) · Applied Economics Workshop, National University of Singapore</div>
+</section>
+
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <div class="edu-item"><div class="edu-degree">Ph.D. in Finance</div><div class="edu-school">University of Hong Kong</div><div class="edu-year">2021–2027</div></div>
+  <div class="edu-item"><div class="edu-degree">Visiting Ph.D. Student in Economics</div><div class="edu-school">University of Warwick</div><div class="edu-year">Apr–Aug 2025</div></div>
+  <div class="edu-item"><div class="edu-degree">Bachelor of Economics and Finance, First Class Honours</div><div class="edu-school">University of Hong Kong</div><div class="edu-year">2015–2020</div></div>
+</section>
+
+</div>
+<footer>&copy; 2026 Wanda Wang</footer>
+</div>
+</div>
+
+<script>
+function toggleAbs(btn){
+  btn.classList.toggle('open');
+  var content=btn.nextElementSibling;
+  content.classList.toggle('open');
+}
+function toggleTheme(){
+  var html=document.documentElement;
+  var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next)}catch(e){}
+}
+(function(){try{var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s)}catch(e){}})();
+</script>
+
+</body>
+</html>
