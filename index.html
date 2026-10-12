@@ -8,10 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root,[data-theme="light"]{
-  --bg:#FAF8F5;--text:#2A2520;--text2:#6B6158;--gold:#A68B5B;--border:#DDD7CE;
-  --nav-bg:rgba(250,248,245,.97);--sidebar-bg:rgba(250,248,245,.95);
+  --bg:#FFFFFF;--text:#2A2520;--text2:#6B6158;--gold:#A68B5B;--border:#DDD7CE;
+  --nav-bg:rgba(255,255,255,.97);--sidebar-bg:rgba(255,255,255,.95);
   --font-d:'Cormorant Garamond',Georgia,serif;--font-b:'Source Sans 3','Segoe UI',sans-serif;
-  --accent:#3D3328;--tag-wp-bg:#FAF8F5;--abs-bg:#F3F0EB;
+  --accent:#3D3328;--tag-wp-bg:#FFFFFF;--abs-bg:#F5F5F5;
 }
 [data-theme="dark"]{
   --bg:#161310;--text:#E8E0D6;--text2:#A89C8E;--gold:#C4A97A;--border:#342E27;
@@ -31,9 +31,9 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-heigh
 .page{display:flex;max-width:1100px;margin:0 auto;padding:0 24px}
 .sidebar{width:250px;flex-shrink:0;padding:36px 24px 40px 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
 .sidebar-photo{width:180px;height:225px;object-fit:cover;border-radius:4px;margin-bottom:18px;display:block;border:1px solid var(--border)}
-.sidebar-name{font-family:var(--font-d);font-size:24px;font-weight:600;color:var(--text);margin-bottom:3px}
-.sidebar-title{font-size:13.5px;color:var(--text2);margin-bottom:16px;line-height:1.5}
-.sidebar-info{font-size:13px;color:var(--text2);line-height:1.8}
+.sidebar-name{font-family:var(--font-d);font-size:27px;font-weight:600;color:var(--text);margin-bottom:3px}
+.sidebar-title{font-size:15px;color:var(--text2);margin-bottom:16px;line-height:1.5}
+.sidebar-info{font-size:14.5px;color:var(--text2);line-height:1.8}
 .sidebar-info a{color:var(--gold);text-decoration:none}
 .sidebar-info a:hover{text-decoration:underline}
 .content{flex:1;min-width:0;border-left:1px solid var(--border);padding:0 0 60px 40px}
@@ -48,10 +48,10 @@ section{margin-bottom:36px}
 .paper:hover{border-left-color:var(--gold)}
 .paper-title{font-family:var(--font-d);font-size:17px;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:2px}
 .paper-meta{font-size:13.5px;color:var(--text2);font-style:italic;margin-bottom:3px}
-.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:3px;letter-spacing:.02em}
-.tag-jmp{background:var(--accent);color:#F5F0E8}
+.tag{display:inline-block;font-size:13px;font-weight:600;padding:1px 7px;border-radius:3px;letter-spacing:.02em}
+.tag-jmp{background:var(--gold);color:#fff}
 .tag-rr{background:var(--gold);color:#fff}
-.tag-pub{background:#4A7A5C;color:#fff}
+.tag-pub{background:var(--gold);color:#fff}
 .tag-wp{background:var(--tag-wp-bg);color:var(--text2);border:1px solid var(--border)}
 .subsection{font-family:var(--font-d);font-size:17px;font-weight:500;color:var(--gold);margin:24px 0 12px;font-style:italic}
 
@@ -133,7 +133,7 @@ footer{padding:24px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 
   <div class="subsection">Job Market Paper</div>
   <div class="paper">
-    <div class="paper-title">Removing Internal Trade Barriers and Financial Development: Evidence from China in the 1930s</div>
+    <div class="paper-title">Removing Internal Trade Barriers and Financial Development: Evidence from China</div>
     <div><span class="tag tag-jmp">Job Market Paper</span> <span class="tag tag-wp">Sole-authored</span></div>
     <button class="abs-toggle" onclick="toggleAbs(this)"><span class="arrow">&#9654;</span> Abstract</button>
     <div class="abs-content"><div class="abs-text">Can removing internal trade barriers expand finance? The answer is not obvious: barrier removal may enlarge the commercial base on which bank offices depend, or reduce demand for working capital. I study China's 1931 abolition of likin, a system of internal checkpoint taxes, exploiting variation in prereform station exposure across 272 prefectures. Chinese bank offices and industrial entrants grew most where both local relief and external market-access gains were high, a pattern confirmed by an instrument based on distance to a minimum spanning tree of mid-nineteenth-century military suppression nodes. Expansion concentrated in branches of existing banks and transport-intensive sectors. Foreign banks showed no response. The reform gradient accounts for roughly 29 percent of the net increase in bank offices by 1936, and borrowing-rate gaps narrowed along intensively taxed corridors. Removing internal trade barriers can deepen finance by enlarging the economic base that intermediation serves.</div></div>
@@ -238,7 +238,7 @@ footer{padding:24px 0;border-top:1px solid var(--border);font-size:12.5px;color:
 </section>
 
 </div>
-<footer><div style="text-align:center;margin-bottom:12px"><a href="https://info.flagcounter.com/NdQz"><img src="https://s01.flagcounter.com/count2/NdQz/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="border-radius:4px"></a></div>&copy; 2026 Wanda Wang</footer>
+<footer>&copy; 2026 Wanda Wang</footer>
 </div>
 </div>
 
